@@ -118,7 +118,8 @@ window.__LOCALIZED_IGNORE_REQUIREJS = true;
       }
 
       var noCache = !!options.noCache,
-          url = "https://goggles.mozilla.org/strings"; //options.url || '/strings';
+          //url = "https://goggles.mozilla.org/strings";
+          url = options.url || '/strings';
 
       // If given an absolute url (starting in http), we don't process it.
       // Otherwise we fix it up to include the current lang from <html lang="...">
