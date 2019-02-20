@@ -1,4 +1,4 @@
-var gogglesBaseURI = window.location.protocol + "//" + window.location.host;
+var gogglesBaseURI = window.location.protocol + "//" + "goggles.mozilla.org";//window.location.host;
 
 var bookmarklet = (function() {
   var script=document.createElement('script');
