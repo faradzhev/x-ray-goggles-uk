@@ -12334,7 +12334,7 @@ var Webxray = (function() {
         {
           key: 'P',
           cmd: 'uproot',
-          alwaysInToolbar: true,
+          alwaysInToolbar: false,
           execute: function() {
             persistence.saveHistoryToDOM();
             jQuery.openUprootDialog(self);
@@ -12363,7 +12363,7 @@ var Webxray = (function() {
         {
           key: 'H',
           cmd: 'help',
-          alwaysInToolbar: true,
+          alwaysInToolbar: false,
           execute: function() {
             self.showKeyboardHelp();
           }
