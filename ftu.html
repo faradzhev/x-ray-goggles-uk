@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mozilla X-Ray Goggles</title>
+    <script src="authtoken.js"></script>
+    <link rel="stylesheet" href="https://goggles.mozilla.org/stylesheets/homepage/userbar.css">
+    <link rel="stylesheet" href="https://goggles.mozilla.org/stylesheets/homepage/style.css">
+    <link rel="icon" href="https://goggles.mozilla.org/img/goggles-logo.png">
+    <script src="https://goggles.mozilla.org/bower/ua-parser-js/dist/ua-parser.min.js"></script>
+    <script>
+    (function() {
+      var ua = UAParser();
+      var html = document.querySelector("html");
+      html.setAttribute("data-os", ua.os.name.toLowerCase());
+      html.setAttribute("data-browser", ua.browser.name.toLowerCase());
+    }());
+    </script>
+  </head>
+  <body>
+
+  <div id="mobile-overlay" class="inactive">
+    <p class="notice">
+      Рентген-Окуляри були розроблені для браузеру на комп'ютері і
+      базується на панелі закладок. Будь ласка, встановіть і
+      спробейте їх на вашому комп'ютері.
+    </p>
+  </div>
+  <script>
+  (function() {
+    var overlay = document.getElementById("mobile-overlay");
+    var html = document.querySelector("html");
+    var mobileBrowsers = ["android", "ios"];
+    if (mobileBrowsers.indexOf(html.getAttribute("data-os")) !== -1) {
+      overlay.setAttribute("class", "active");
+    }
+    overlay.addEventListener("click", function() {
+      overlay.parentNode.removeChild(overlay);
+    });
+  }());
+  </script>
+
+
+
+  <!-- webmaker user bar -->
+  <nav class="navbar-goggles container-flex">
+    <div id="navbar-left" class="container-flex">
+      <div class="navbar-logo-container">
+        <a href="/" class="logo">
+          <img src="https://goggles.mozilla.org/img/goggles-logo.png" class="goggles-logo">
+          <span class="logo-text">Рентген-Окуляри</span>
+          <span class="logo-by">від</span>
+          <span class="mozilla-word-mark">mozilla</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+    <div class="dialoger webxray-msg-dialog"></div>
+
+        <link rel="stylesheet" href="https://goggles.mozilla.org/webxray.css">
+    <link rel="stylesheet" href="https://goggles.mozilla.org/stylesheets/uproot-dialog.css">
+    <link rel="stylesheet" href="https://goggles.mozilla.org/stylesheets/homepage/instructions/ftu.css">
+
+    <div class="instruction-overlay">
+      <div class="dialog">
+        <div class="body">
+
+          <img class="logo" src="https://goggles.mozilla.org/img/goggles-logo.png">
+          <p><strong>Крок 1: активуйте Рентген-Окуляри</strong></p>
+          <p>
+            Натисніть "Рентген-Окуляри" на панелі закладок, аби активувати їх.
+          </p>
+
+          <img class="demoimg" src="https://goggles.mozilla.org/img/goggles-step-2.png">
+          <script>
+          (function() {
+            var img = document.querySelector("img.demoimg");
+            var html = document.querySelector("html");
+            var os = html.getAttribute("data-os");
+            var browser = html.getAttribute("data-browser");
+            // OS/Browser we have pictures for?
+            if (["mac os", "windows"].indexOf(os) === -1) os = "windows";
+            if (["safari", "ie", "firefox", "chrome", "opera"].indexOf(browser) === -1) browser = "firefox";
+            var src = ["https://goggles.mozilla.org/img/instructions/bookmark3", os, browser].join('-') + "@2x.png";
+            img.src = src;
+          }());
+          </script>
+
+          <div class="tutorialnotes">
+            <p><a href="https://support.mozilla.org/kb/install-x-ray-goggles#w_enable-your-bookmarks-toolbar">Дізнайтесь як увімкнути панель закладок.</a></p>
+            <p>Якщо ви ще не встановили Рентген-Окуляри, <a href="/">натисніть тут, аби перейти на сторінку встановлення.</a></p>
+          </div>
+
+          <div class="dismissnotice">
+            Якщо ви не хочете робити вправу, а бажаєте просто переглянути сторінку, натисніть
+            <span class="link dismiss-link">тут</span>. Якщо ви бажаєте спробувати вправу пізніше, просто оновіть сторінку.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="instructions">
+      <div class="content-wrapper">
+
+        <div class="remix-me">
+          <h1>Яке в мене ім'я'?</h1>
+          <p>
+            Ця інструкція проведе вас через комбіновану гру, щоб дізнатися про ключові особливості
+            Рентген-Окулярів. З ними можна змінити текст і різні частини dino, fox і bird,
+            аби створити нову веб-сторінку з вашою власною тваринкою.
+          </p>
+        </div>
+
+        <figure class="remix-me">
+          <img src="https://goggles.mozilla.org/img/animals/top/fox.png">
+          <img src="https://goggles.mozilla.org/img/animals/middle/bird.png">
+          <img src="https://goggles.mozilla.org/img/animals/bottom/dino.png">
+        </figure>
+
+        <div class="hidden steps">
+          <div data-step="1" class="step goggles-edit-start skip-2">
+            <h2>Перемішай картинки</h2>
+            <p>Наведи курсор на картинку і натисни на неї, аби відкрити її код.</p>
+            <div class="nav options">
+              <button class="back">назад</button>
+              <button class="skip">пропустити</button>
+            </div>
+          </div>
+
+          <div data-step="2" class="step goggles-edit-finished">
+            <h2>Створи нову тварину!</h2>
+            <p>Пограйся змінюючи місцями слова <code>dino</code>, <code>fox</code>, та <code>bird</code> в кожній частині.</p>
+            <p>Натисни кнопку "Update", аби зберегти свої зміни.</p>
+            <p class="aside">(таккж можна використати зовсім інше зображення! Використовуючи Окуляри, ти можеж додати будь-яку картинку з інтернету, але будь обережним не порушити закон: навіть якщо ти можеш знайти картинку не означає що її можна вільно використовувати у власниї цілях!)</p>
+            <div class="nav options">
+              <button class="back">назад</button>
+              <button class="skip">пропустити</button>
+            </div>
+          </div>
+
+          <div data-step="3" class="step goggles-edit-start skip-2">
+            <h2>Заміни слова</h2>
+            <p>Наведи курсор на текст і натисни на нього, аби відкрити редактор.</p>
+            <div class="nav options">
+              <button class="back">назад</button>
+              <button class="skip">пропустити</button>
+            </div>
+          </div>
+
+          <div data-step="4" class="step goggles-edit-finished">
+            <h2>Познайом світ зі своєю тваринкою!</h2>
+            <p>Видали текст між <code>&lt;h1&gt;</code> та <code>&lt;/h1&gt;</code> і
+              дай своїй тваринці ім'я. Потім, зміни текст між <code>&lt;p&gt;</code>
+              та <code>&lt;/p&gt;</code> якоюсь інформацією про твою тварину.
+              Де вона живе? Що вона їсть? Яку музику слухає?</p>
+            <p>Натисни кнопку "Update", аби зберегти свої зміни.</p>
+            <div class="nav options">
+              <button class="back">назад</button>
+              <button class="skip">пропустити</button>
+            </div>
+          </div>
+
+          <div data-step="5" class="step end">
+            <h2>Publish Your Animal</h2>
+            <p>Та-дам! Як тільки сторінка готова і ти хочеш її опублікувати, натисни "Publish".</p>
+            <div class="nav options">
+              <button class="end">закрити</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <script src="https://goggles.mozilla.org/js/ftu.js"></script>
+    </section>
+
+
+
+
+    <footer>
+      <div class="content-wrapper">
+        <ul class="social-links">
+          <li><a title="Stuck? Get help!" class="help" href="https://support.mozilla.org/en-US/products/webmaker/x-ray-goggles"><span class="icon"></span>Stuck? Get help!</a></li>
+          <li><a title="Talk to us on Twitter" class="twitter" href="https://twitter.com/mozlearn"><span class="icon"></span>Talk to us on Twitter</a></li>
+          <li><a title="Contribute on Github" class="github" href="https://github.com/mozilla/goggles.webmaker.org"><span class="icon"></span>Contribute on Github</a></li>
+          <li><a title="Terms of Service" class="terms" href="https://beta.webmaker.org/#/legal"><span class="icon"></span>Terms of Service</a></li>
+          <li><a title="Privacy Policy" class="privacy" href="https://www.mozilla.org/en-US/privacy/websites"><span class="icon"></span>Privacy Policy</a></li>
+        </ul>
+
+        <div class="project-info">
+          <a class="mozilla-logo" title="Mozilla" href="https://www.mozilla.org/en-US/"><img alt="Mozilla" src="https://goggles.mozilla.org/img/mozilla-logo.svg"></a>
+          <p class="goggles-context">
+            X-Ray Goggles is part of the Mozilla Learning Network. <br>
+            Learn to teach like mozilla at <a href="http://teach.mozilla.org">teach.mozilla.org</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+  </body>
+</html>
