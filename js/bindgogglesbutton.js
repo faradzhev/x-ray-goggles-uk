@@ -4,7 +4,7 @@ var bookmarklet = (function() {
   var script=document.createElement('script');
   script.src=gogglesBaseURI+'/webxray.js';
   script.className='webxray';
-  script.setAttribute('data-lang','uk');
+  script.setAttribute('data-lang','en-US');
   script.setAttribute('data-baseuri',gogglesBaseURI);
   document.body.appendChild(script);
 }).toString();
